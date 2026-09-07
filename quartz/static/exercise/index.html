@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>Six Month Strength</title>
+<style>
+:root{
+  --bg:#f4f6f8;--card:#fff;--ink:#111827;--muted:#667085;--line:#e4e7ec;
+  --accent:#2563eb;--accent2:#dbeafe;--ok:#067647;--warn:#b54708;--danger:#b42318;
+  --shadow:0 8px 26px rgba(16,24,40,.08)
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);padding-bottom:92px}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.shell{max-width:720px;margin:0 auto}
+header{padding:calc(18px + env(safe-area-inset-top)) 18px 14px;background:#111827;color:#fff;position:sticky;top:0;z-index:10}
+header .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#98a2b3}
+header h1{font-size:23px;line-height:1.15;margin:4px 0 3px}
+header p{margin:0;color:#d0d5dd;font-size:13px}
+main{padding:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px;margin-bottom:12px}
+.row{display:flex;gap:10px;align-items:center}
+.between{justify-content:space-between}
+.wrap{flex-wrap:wrap}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+h2{font-size:18px;margin:0 0 10px}
+h3{font-size:15px;margin:0}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;background:#f2f4f7;color:#344054;font-size:12px;font-weight:700}
+.pill.blue{background:var(--accent2);color:#1d4ed8}
+.progress{height:9px;background:#eaecf0;border-radius:999px;overflow:hidden;margin-top:10px}
+.progress>div{height:100%;background:var(--accent)}
+.bigbtn{width:100%;border:0;border-radius:14px;padding:14px 16px;font-weight:800;background:var(--accent);color:white;min-height:50px}
+.secondary{background:#eef2f6;color:#111827}
+.ghost{background:transparent;border:1px solid var(--line);color:#344054}
+.danger{background:#fee4e2;color:var(--danger)}
+.exercise{border-top:1px solid var(--line);padding:14px 0}
+.exercise:first-of-type{border-top:0;padding-top:4px}
+.ex-name{font-weight:800}
+.ex-meta{font-size:12px;color:var(--muted);margin-top:3px}
+.setgrid{display:grid;grid-template-columns:34px 1fr 1fr 42px;gap:8px;align-items:center;margin-top:10px}
+.setgrid .head{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.setgrid input{width:100%;min-width:0;padding:11px 8px;border:1px solid #d0d5dd;border-radius:11px;background:#fff;text-align:center;font-weight:700}
+.setgrid input:focus{outline:3px solid #dbeafe;border-color:#84adff}
+.check{width:38px;height:38px;border-radius:10px;border:1px solid #d0d5dd;background:#fff;font-weight:900}
+.check.done{background:#dcfae6;color:var(--ok);border-color:#75e0a7}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom))}
+.tabs .inner{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.tab{border:0;background:transparent;padding:7px 3px;border-radius:12px;color:#667085;font-size:11px;font-weight:800;min-height:52px}
+.tab.active{background:#eff6ff;color:#1d4ed8}
+.tab span{display:block;font-size:20px;line-height:20px;margin-bottom:3px}
+.hidden{display:none!important}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:#f8fafc;border-radius:13px;padding:11px}
+.stat b{display:block;font-size:19px}
+.stat span{font-size:11px;color:var(--muted)}
+.timeline{display:grid;gap:8px}
+.hist{border:1px solid var(--line);border-radius:14px;padding:12px}
+.hist strong{font-size:14px}
+.hist .date{font-size:12px;color:var(--muted)}
+.phase{border-left:4px solid #84adff;padding:10px 12px;margin:8px 0;background:#f8fafc;border-radius:0 12px 12px 0}
+.phase b{display:block}
+.formrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{font-size:12px;font-weight:700;color:#344054}
+label input,label select{display:block;width:100%;margin-top:5px;padding:11px;border:1px solid #d0d5dd;border-radius:10px;background:#fff}
+.notice{padding:10px 12px;border-radius:12px;background:#fffaeb;color:#7a2e0e;font-size:12px}
+canvas{width:100%;height:180px;display:block}
+.empty{padding:28px 10px;text-align:center;color:var(--muted)}
+.topgap{margin-top:10px}
+.kebab{border:0;background:#f2f4f7;border-radius:10px;min-width:42px;min-height:42px}
+@media(min-width:680px){main{padding:20px}.card{padding:20px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header>
+  <div class="eyebrow">6-month strength plan</div>
+  <h1 id="headerTitle">Today</h1>
+  <p id="headerSub">26 weeks · 3 sessions/week · dumbbells + bench + ab wheel</p>
+</header>
+<main>
+<section id="todayView">
+  <div class="card">
+    <div class="row between">
+      <div><div class="pill blue" id="weekPill">Week 1 of 26</div><h2 style="margin-top:10px" id="todayWorkoutName">Workout A</h2><div class="muted small" id="todayPhase">Foundation</div></div>
+      <button class="kebab" id="swapBtn" aria-label="Swap workout">⇄</button>
+    </div>
+    <div class="progress"><div id="planProgress" style="width:3.8%"></div></div>
+  </div>
+  <div class="card" id="exerciseCard"></div>
+  <div class="card"><div class="row" style="align-items:flex-start"><div style="font-size:20px">↗</div><div><b>Progression rule</b><div class="muted small" style="margin-top:4px" id="progressionText"></div></div></div></div>
+</section>
+<section id="planView" class="hidden">
+  <div class="card"><h2>Your 26-week plan</h2><div class="muted small">Three full-body sessions per week. Alternate A/B/A, then B/A/B. Each phase changes the rep target and progression emphasis.</div><div id="phaseList" class="topgap"></div></div>
+  <div class="card"><h2>Workout templates</h2><div id="templateList"></div></div>
+</section>
+<section id="historyView" class="hidden">
+  <div class="card"><div class="row between"><h2>History</h2><button class="kebab" id="exportBtn" title="Export backup">⇩</button></div><div id="stats" class="statgrid topgap"></div></div>
+  <div class="card"><h2>Training volume</h2><canvas id="volumeChart" width="640" height="180"></canvas><div class="muted small">Approximate load volume = weight × reps across completed sets.</div></div>
+  <div class="card"><div id="historyList" class="timeline"></div></div>
+</section>
+<section id="settingsView" class="hidden">
+  <div class="card"><h2>Plan settings</h2><div class="formrow"><label>Plan start<input type="date" id="startDate"></label><label>Weight unit<select id="unit"><option value="lb">lb</option><option value="kg">kg</option></select></label></div><div class="topgap"><label>Training days<select id="days"><option value="1,3,5">Mon / Wed / Fri</option><option value="2,4,6">Tue / Thu / Sat</option><option value="0,2,4">Sun / Tue / Thu</option></select></label></div></div>
+  <div class="card"><h2>Data</h2><div class="notice">Your workout data is saved on this device in your browser. Export a backup periodically. Hosting the page does not by itself create cross-device cloud sync.</div><div class="row topgap"><button class="bigbtn secondary" id="importBtn">Import backup</button><input type="file" id="importFile" accept="application/json" class="hidden"></div><button class="bigbtn danger topgap" id="resetBtn">Reset all workout data</button></div>
+</section>
+</main>
+</div>
+<nav class="tabs"><div class="inner"><button class="tab active" data-view="todayView"><span>●</span>Today</button><button class="tab" data-view="planView"><span>▦</span>Plan</button><button class="tab" data-view="historyView"><span>↗</span>History</button><button class="tab" data-view="settingsView"><span>⚙</span>Settings</button></div></nav>
+<script>
+const PLAN_KEY="sixMonthStrength_v1";
+const EXERCISES={A:[["Goblet squat","Quads · glutes","3","8-12"],["Dumbbell bench press","Chest · triceps","3","8-12"],["One-arm dumbbell row","Back · biceps","3","8-12"],["Dumbbell Romanian deadlift","Hamstrings · glutes","3","8-12"],["Ab-wheel rollout","Core","3","6-12"]],B:[["Bulgarian split squat","Quads · glutes","3","8-12 / side"],["Dumbbell overhead press","Shoulders · triceps","3","8-12"],["Chest-supported dumbbell row","Back · biceps","3","8-12"],["Dumbbell hip thrust","Glutes","3","10-15"],["Dumbbell curl + triceps extension","Arms","2","10-15 each"]]};
+const phases=[{start:1,end:4,name:"Foundation",reps:"8–12",sets:"2–3",note:"Leave ~3 reps in reserve. Groove technique and establish conservative starting loads."},{start:5,end:9,name:"Build I",reps:"8–12",sets:"3",note:"Double progression: add reps first, then load when all sets reach the top of the range."},{start:10,end:13,name:"Build II",reps:"6–10",sets:"3–4",note:"Slightly heavier work. Main lifts can use 4 sets; accessories stay at 2–3."},{start:14,end:14,name:"Deload",reps:"Easy",sets:"2",note:"Use ~70% of normal load/volume. Stop every set well short of fatigue."},{start:15,end:19,name:"Strength",reps:"5–8",sets:"3–4",note:"Heavier main lifts. Keep form strict and generally finish with 1–2 reps in reserve."},{start:20,end:24,name:"Hypertrophy",reps:"8–15",sets:"3",note:"Moderate loads, controlled eccentrics, more total reps. Avoid grinding reps."},{start:25,end:26,name:"Consolidate",reps:"6–10",sets:"3",note:"Hold exercise selection steady and aim to beat prior clean rep or load marks without maxing out."}];
+let state=loadState();let currentWorkout=getWorkoutForDate(new Date());
+function iso(d){return d.toISOString().slice(0,10)}function defaultState(){const d=new Date();return{startDate:iso(d),unit:"lb",days:"1,3,5",logs:[],lastWeights:{},swap:null}}function loadState(){try{return{...defaultState(),...JSON.parse(localStorage.getItem(PLAN_KEY)||"{}")}}catch(e){return defaultState()}}function saveState(){localStorage.setItem(PLAN_KEY,JSON.stringify(state))}function phaseForWeek(w){return phases.find(p=>w>=p.start&&w<=p.end)||phases[phases.length-1]}function currentWeek(){const start=new Date(state.startDate+"T12:00:00");const now=new Date();const days=Math.floor((now-start)/(864e5));return Math.min(26,Math.max(1,Math.floor(days/7)+1))}function getWorkoutForDate(date){if(state.swap)return state.swap;const start=new Date(state.startDate+"T12:00:00");let sessionCount=0;for(let d=new Date(start);d<=date;d.setDate(d.getDate()+1)){if(state.days.split(",").map(Number).includes(d.getDay()))sessionCount++}if(sessionCount<1)sessionCount=1;return sessionCount%2===1?"A":"B"}function setCountForWeek(week,exIndex){if(week<=4)return week===1?2:3;if(week>=10&&week<=13&&exIndex<3)return 4;if(week===14)return 2;if(week>=15&&week<=19&&exIndex<3)return 4;return EXERCISES[currentWorkout][exIndex][2]*1}function repsForWeek(week,base){if(week===14)return"easy";if(week>=15&&week<=19)return base.includes("side")?"5-8 / side":"5-8";if(week>=10&&week<=13)return base.includes("side")?"6-10 / side":"6-10";if(week>=20&&week<=24)return base.includes("side")?"8-15 / side":"8-15";if(week>=25)return base.includes("side")?"6-10 / side":"6-10";return base}
+function renderToday(){const week=currentWeek(),phase=phaseForWeek(week);document.getElementById("weekPill").textContent=`Week ${week} of 26`;document.getElementById("todayWorkoutName").textContent=`Workout ${currentWorkout}`;document.getElementById("todayPhase").textContent=phase.name;document.getElementById("planProgress").style.width=`${Math.min(100,week/26*100)}%`;document.getElementById("progressionText").textContent=week===14?"Deload week: reduce load and total work. The goal is to finish fresher than you started.":"When you hit the top of the target rep range on every work set with clean form and ~1–2 reps still available, increase the dumbbell load next time by the smallest practical increment.";const prev=state.logs.filter(l=>l.workout===currentWorkout).slice(-1)[0];const list=EXERCISES[currentWorkout];let html=`<div class="row between"><h2>Log workout</h2><span class="pill">${phase.reps} reps</span></div>`;list.forEach((ex,i)=>{const n=setCountForWeek(week,i);const target=repsForWeek(week,ex[3]);const lastWeight=state.lastWeights[ex[0]]||"";html+=`<div class="exercise" data-ex="${i}"><div class="ex-name">${ex[0]}</div><div class="ex-meta">${ex[1]} · ${n} sets · target ${target}</div><div class="setgrid"><div class="head">Set</div><div class="head">Weight</div><div class="head">Reps</div><div></div>`;for(let s=0;s<n;s++){const prevSet=prev?.sets?.find(x=>x.exercise===ex[0]&&x.set===s+1);html+=`<div class="small muted">${s+1}</div><input inputmode="decimal" aria-label="${ex[0]} set ${s+1} weight" data-i="${i}" data-s="${s}" data-f="weight" placeholder="${lastWeight||"—"}" value="${prevSet?.weight??""}"><input inputmode="numeric" aria-label="${ex[0]} set ${s+1} reps" data-i="${i}" data-s="${s}" data-f="reps" placeholder="reps" value=""><button class="check" data-check="${i}-${s}">✓</button>`}html+=`</div></div>`});html+=`<button class="bigbtn" id="finishBtn">Finish workout</button>`;document.getElementById("exerciseCard").innerHTML=html;document.querySelectorAll(".check").forEach(b=>b.onclick=()=>b.classList.toggle("done"));document.getElementById("finishBtn").onclick=finishWorkout}
+function finishWorkout(){const log={date:iso(new Date()),timestamp:Date.now(),week:currentWeek(),workout:currentWorkout,phase:phaseForWeek(currentWeek()).name,sets:[]};document.querySelectorAll(".exercise").forEach((node,i)=>{const ex=EXERCISES[currentWorkout][i][0];node.querySelectorAll('input[data-f="weight"]').forEach((w,s)=>{const r=node.querySelector(`input[data-i="${i}"][data-s="${s}"][data-f="reps"]`);const c=node.querySelector(`[data-check="${i}-${s}"]`);const weight=parseFloat(w.value||0),reps=parseInt(r.value||0);if((weight||reps)&&c.classList.contains("done")){log.sets.push({exercise:ex,set:s+1,weight,reps});if(weight)state.lastWeights[ex]=weight}})});if(!log.sets.length){alert("Mark at least one completed set first.");return}state.logs.push(log);state.swap=null;saveState();alert("Workout saved.");renderToday()}
+function renderPlan(){document.getElementById("phaseList").innerHTML=phases.map(p=>`<div class="phase"><b>Weeks ${p.start}${p.end>p.start?"–"+p.end:""} · ${p.name}</b><span class="small muted">${p.sets} sets · ${p.reps} reps</span><div class="small" style="margin-top:4px">${p.note}</div></div>`).join("");document.getElementById("templateList").innerHTML=["A","B"].map(k=>`<div class="exercise"><div class="pill blue">Workout ${k}</div>${EXERCISES[k].map(x=>`<div class="row between" style="padding-top:9px"><span class="small"><b>${x[0]}</b><br><span class="muted">${x[1]}</span></span><span class="small muted">${x[2]} × ${x[3]}</span></div>`).join("")}</div>`).join("")}
+function renderHistory(){const logs=[...state.logs].reverse();const sets=state.logs.reduce((n,l)=>n+l.sets.length,0);const volume=Math.round(state.logs.reduce((n,l)=>n+l.sets.reduce((a,s)=>a+s.weight*s.reps,0),0));document.getElementById("stats").innerHTML=`<div class="stat"><b>${state.logs.length}</b><span>workouts</span></div><div class="stat"><b>${sets}</b><span>sets</span></div><div class="stat"><b>${volume.toLocaleString()}</b><span>${state.unit} reps-load</span></div>`;document.getElementById("historyList").innerHTML=logs.length?logs.map(l=>{const vol=Math.round(l.sets.reduce((n,s)=>n+s.weight*s.reps,0));return`<div class="hist"><div class="row between"><strong>Workout ${l.workout} · W${l.week}</strong><span class="date">${l.date}</span></div><div class="small muted" style="margin-top:4px">${l.phase} · ${l.sets.length} completed sets · ${vol.toLocaleString()} ${state.unit} volume</div></div>`}).join(""):`<div class="empty">No workouts logged yet.</div>`;drawChart()}
+function drawChart(){const c=document.getElementById("volumeChart"),ctx=c.getContext("2d");const dpr=window.devicePixelRatio||1,cssW=c.clientWidth||640,cssH=180;c.width=cssW*dpr;c.height=cssH*dpr;ctx.scale(dpr,dpr);ctx.clearRect(0,0,cssW,cssH);const data=state.logs.slice(-12).map(l=>l.sets.reduce((n,s)=>n+s.weight*s.reps,0));ctx.strokeStyle="#e4e7ec";ctx.lineWidth=1;[30,75,120,165].forEach(y=>{ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(cssW,y);ctx.stroke()});if(data.length<1){ctx.fillStyle="#667085";ctx.font="12px sans-serif";ctx.fillText("Log workouts to see your trend.",12,95);return}const max=Math.max(...data,1),pad=14;ctx.strokeStyle="#2563eb";ctx.lineWidth=3;ctx.lineJoin="round";ctx.lineCap="round";ctx.beginPath();data.forEach((v,i)=>{const x=pad+(cssW-pad*2)*(data.length===1?.5:i/(data.length-1));const y=165-(v/max)*130;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke()}
+function showView(id){["todayView","planView","historyView","settingsView"].forEach(v=>document.getElementById(v).classList.toggle("hidden",v!==id));document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.view===id));document.getElementById("headerTitle").textContent={todayView:"Today",planView:"Plan",historyView:"History",settingsView:"Settings"}[id];if(id==="planView")renderPlan();if(id==="historyView")renderHistory()}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>showView(t.dataset.view));document.getElementById("swapBtn").onclick=()=>{state.swap=currentWorkout==="A"?"B":"A";saveState();currentWorkout=state.swap;renderToday()};document.getElementById("startDate").value=state.startDate;document.getElementById("unit").value=state.unit;document.getElementById("days").value=state.days;["startDate","unit","days"].forEach(id=>document.getElementById(id).onchange=e=>{state[id]=e.target.value;state.swap=null;saveState();currentWorkout=getWorkoutForDate(new Date());renderToday()});document.getElementById("exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`strength-backup-${iso(new Date())}.json`;a.click();URL.revokeObjectURL(a.href)};document.getElementById("importBtn").onclick=()=>document.getElementById("importFile").click();document.getElementById("importFile").onchange=async e=>{try{const obj=JSON.parse(await e.target.files[0].text());state={...defaultState(),...obj};saveState();location.reload()}catch(err){alert("That backup file could not be read.")}};document.getElementById("resetBtn").onclick=()=>{if(confirm("Delete all workout history and settings on this device?")){localStorage.removeItem(PLAN_KEY);location.reload()}};renderToday();
+</script>
+</body>
+</html>
